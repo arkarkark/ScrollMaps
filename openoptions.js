@@ -1,8 +1,6 @@
 /**
-
-  Open the options page when necessary. Linked to the safari settings extension. 
-
-**/
+ * Open the options page when necessary. Linked to the safari settings extension.
+ */
 
 var OpenOptions = {};
 
