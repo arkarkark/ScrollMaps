@@ -24,11 +24,7 @@ function pref(label){
 	}
 
 	function getOptions() {
-		var opt = localStorage['options'];
-		if (!opt) return false;
-		var options = JSON.parse(opt);
-		if (!options) return false;
-		return options;
+        return $.extend({}, defaults, safari.extension.settings);
 	}
 
     PrefManager.getAllOptions = function() {
@@ -36,12 +32,8 @@ function pref(label){
     };
 
 	PrefManager.setOption = function(key, value) {
-		var options = getOptions();
-		if (!options) options = {};
-		options[key] = value;
-		localStorage['options'] = JSON.stringify(options);
+        safari.extension.settings[key] = value;
         $(window).trigger('preferenceChanged', [{key: key, value: value}]);
-		console.log('Options saved');
 	};
 
 	PrefManager.getOption = function(key) {

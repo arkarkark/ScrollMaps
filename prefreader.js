@@ -44,6 +44,11 @@ function pref(key){
         return PrefReader.options[key];
     };
 
+    PrefReader.setOption = function(key, value){
+        PrefReader.options[key] = value;
+        Message.extension.sendMessage('setPreference', {key: key, value: value});
+    };
+
     PrefReader.onPreferenceChanged = function(key, func){
         $(window).bind('preferenceChanged', function(event, pair){
             if(pair.key == key)
