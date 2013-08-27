@@ -76,7 +76,6 @@ var Message = {};
         }, false);
         window.addEventListener('message', function (event) {
             var data = event.data;
-            console.log(data);
             listener.call(this, data.name, data.message, null, sendResponse);
         }, false);
     };
